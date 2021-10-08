@@ -71,6 +71,6 @@ int main (void){
     for(TypeEntier i=0;i<=a;i++){
         printf("%li!= %li \n",i,factorielle(i));
     }
-    return (0);
+    return 0;
 
 }
