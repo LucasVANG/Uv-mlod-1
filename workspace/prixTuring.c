@@ -1,15 +1,15 @@
 /**
  Compilation
- gcc --std=c99 -W -Wall -o prixTuring prixTuring.c
+ gcc --std=c99 -W -Wall -o Turing Turing.c
 
  Exécution
- ./prixTuring < turingWinners.txt > out.txt
+ ./Turing < turingWinners.txt > out.txt
 
  Tests
  diff out.txt turingWinners.txt
 
  Détection de fuites mémoires
- valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all --show-reachable=no ./prixTuring < turingWinners.txt > out.txt
+ valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all --show-reachable=no ./Turing < turingWinners.txt > out.txt
 **/
 
 #include <stdio.h>
@@ -47,13 +47,32 @@ int scanLineAsInt() {
 	scanf("%i\n",&buf);
 	return buf;
 }
+struct gagnantTuring{
+	int annee;
+	char *noms;
+	char* raison;
 
-
-int main(void)
+};
+typedef struct gagnantTuring GagnantTuring;
+void readWinners(GagnantTuring **g ,int nb){
+	*g=(GagnantTuring*)  malloc(sizeof(GagnantTuring) * nb);
+	for(int i=0;i<nb;i++){
+		(*g)[i].annee=scanLineAsInt();
+		(*g)[i].noms=scanLine();
+		(*g)[i].raison=scanLine();
+		}
+}
+void printWinners(GagnantTuring **g ,int nb){
+	for (int t=0;t<nb;t++){
+		printf("%i \n %s \n %s \n",(*g)[t].annee,(*g)[t].noms,(*g)[t].raison);
+	}
+}
+int main(int arg, char *argc[])
 {
-
+	GagnantTuring *G;
 	int nbGagnants = scanLineAsInt();
-	printf("nbGagnants = %i\n",nbGagnants);
-
+	readWinners(&G ,nbGagnants);
+	printWinners(&G, nbGagnants);
+	
 	return EXIT_SUCCESS;
 }

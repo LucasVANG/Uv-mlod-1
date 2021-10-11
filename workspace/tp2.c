@@ -235,7 +235,7 @@ Fraction sommeInvN(int n){
 //main
 int main(void){
     // test exo 1
-    int a=5;
+    /*int a=5;
     int b=2;
     echangeContenu(&a,&b);
     printf("a=%i,b=%i \n",a,b);
@@ -262,7 +262,7 @@ int main(void){
     int64_t matriceResultat[5][5];
     mult_matrice(matriceResultat,matrice1,matrice2);
     affiche_matrice(matriceResultat);
-
+    */
 
     //test exo 4
 
