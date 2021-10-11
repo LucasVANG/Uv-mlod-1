@@ -1,6 +1,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 //fonction exo 1
 void echangeContenu(int *a, int *b){
@@ -160,6 +161,24 @@ Date creerDateParCopie(){
 
 }
 
+Date * newDate(){
+    Date *d;
+    d=malloc(sizeof(*d));
+    printf("Entrez le jour :");
+    int j;
+    scanf("%i",&j);
+    printf("Entrez le mois :");
+    int m;
+    scanf("%i",&m);
+    printf("Entrez le annee :");
+    int a;
+    scanf("%i",&a);
+
+    d->annee=a;
+    d->mois=m;
+    d->jour=j;
+    return d;
+}
 
 //exo bonus
 struct fraction{
@@ -214,7 +233,7 @@ Fraction sommeInvN(int n){
 }
 
 //main
-int main (void){
+int main(void){
     // test exo 1
     int a=5;
     int b=2;
@@ -247,12 +266,19 @@ int main (void){
 
     //test exo 4
 
-   /* Date d;
+    Date d;
     initialiseDate(&d);//On ajoute un & pour pouvoir modifier d dans la fonction
     afficheDate(&d);
     Date d2=creerDateParCopie();
     afficheDate(&d2);
-    */
+    Date *d3;
+    d3= newDate();
+    afficheDate(d3);
+
+
+    free(d3);
+
+    
 
     //test exo bonus
 
@@ -276,9 +302,9 @@ int main (void){
     n=3;
     Fraction res;
     res=sommeInvN(n);
-    printf("La somme des inverses de 1 à %i donne %i / %i",n,res.num,res.den);
+    printf("La somme des inverses de 1 à %i donne %i / %i \n",n,res.num,res.den);
 
     return 0;
-
-
+    
 }
+
