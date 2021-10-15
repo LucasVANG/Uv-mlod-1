@@ -85,7 +85,7 @@ int main(int arg, char *argc[])
 	int nbGagnants = scanLineAsInt();
 
 	readWinners(&G ,nbGagnants);
-	ifargc[1]!=NULL&&argc[2]!=NULL){
+	if(argc[1]!=NULL&&argc[2]!=NULL){
 		if(strcmp(argc[1],"infoAnnees"))
 		{
 			int a;
