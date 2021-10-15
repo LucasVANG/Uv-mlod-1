@@ -86,7 +86,7 @@ int main(int arg, char *argc[])
 
 	readWinners(&G ,nbGagnants);
 	if(argc[1]!=NULL&&argc[2]!=NULL){
-		if(strcmp(argc[1],"infoAnnees"))
+		if(strcmp(argc[1],"infosAnnees"))
 		{
 			int a;
 			sscanf(argc[2],"%i",&a);
