@@ -86,17 +86,17 @@ int main(int arg, char *argc[])
 
 	readWinners(&G ,nbGagnants);
 	if(argc[1]!=NULL&&argc[2]!=NULL){
-		if(strcmp(argc[1],"infosAnnees"))
+		if(strcmp(argc[1],"infosAnnees")==0)
 		{
 			int a;
 			sscanf(argc[2],"%i",&a);
 			infosAnnees(a,G,nbGagnants);
+			free(G);
+			return 0;
 		}
 	}
-	else
-	{
-		printWinners(G, nbGagnants);
-	}
+	
+	printWinners(G, nbGagnants);
 	free(G); 
 	return 0;
 }
