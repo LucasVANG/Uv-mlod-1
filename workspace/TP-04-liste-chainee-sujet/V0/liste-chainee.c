@@ -12,6 +12,7 @@ bool estVide(Liste l) {
 // créer une liste d'un seul élément contenant la valeur v
 Liste creer(Element v){
 	Liste l;
+	l=malloc(sizeof(Liste));
 	l->val=v;
 	l->suiv=NULL;
 	return l;
