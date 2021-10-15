@@ -54,6 +54,7 @@ struct gagnantTuring{
 
 };
 typedef struct gagnantTuring GagnantTuring;
+
 void readWinners(GagnantTuring **g ,int nb){
 	*g=(GagnantTuring*)  malloc(sizeof(GagnantTuring) * nb);
 	for(int i=0;i<nb;i++){
@@ -62,17 +63,40 @@ void readWinners(GagnantTuring **g ,int nb){
 		(*g)[i].raison=scanLine();
 		}
 }
-void printWinners(GagnantTuring **g ,int nb){
+void infosAnnees(int n, GagnantTuring *g,int nb){
+	for(int t=0;t<nb;t++){
+		if(g[t].annee==n){
+			printf("%i\n%s\n%s\n",g[t].annee,g[t].noms,g[t].raison);
+			return 0;
+
+		}
+	}
+	
+}
+void printWinners(GagnantTuring *g ,int nb){
+	printf("%i\n",nb);
 	for (int t=0;t<nb;t++){
-		printf("%i \n %s \n %s \n",(*g)[t].annee,(*g)[t].noms,(*g)[t].raison);
+		printf("%i\n%s\n%s\n",g[t].annee,g[t].noms,g[t].raison);
 	}
 }
 int main(int arg, char *argc[])
 {
 	GagnantTuring *G;
 	int nbGagnants = scanLineAsInt();
+
 	readWinners(&G ,nbGagnants);
-	printWinners(&G, nbGagnants);
-	
-	return EXIT_SUCCESS;
+	if(argc[1]!=NULL){
+		if(strcmp(argc[1],"infoAnnees"))
+		{
+			int a;
+			sscanf(argc[2],"%i",&a);
+			infosAnnees(a,G,nbGagnants);
+		}
+	}
+	else
+	{
+		printWinners(G, nbGagnants);
+	}
+	free(G); 
+	return 0;
 }
