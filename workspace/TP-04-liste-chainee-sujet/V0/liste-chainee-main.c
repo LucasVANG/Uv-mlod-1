@@ -8,9 +8,9 @@
 int main(void){
 	Liste l, p;
 
-	l = NULL;
+	l=creer(2);
 	printf("estVide(l) = %s\n",estVide(l)?"TRUE":"FALSE");
-
+	printf("pop\n");
 	l = ajoutTete(1,l);
 	l = ajoutTete(2,l);
 	l = ajoutTete(4,l);
@@ -20,7 +20,7 @@ int main(void){
 	l = ajoutTete(2,l);
 	l = ajoutTete(4,l);
 	l = ajoutTete(1,l);
-
+	printf("ol");
 	afficheListe_i(l);
 
 	ajoutFin_r(99,l);

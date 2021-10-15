@@ -11,12 +11,20 @@ bool estVide(Liste l) {
 
 // créer une liste d'un seul élément contenant la valeur v
 Liste creer(Element v){
-	return TODO;
+	Liste l;
+	l->val=v;
+	l->suiv=NULL;
+	return l;
 }
 
 // ajoute l'élément v en tete de la liste l
 Liste ajoutTete(Element v, Liste l) {
-	return TODO;
+	if(l!=NULL){
+		Liste res;
+		res=creer(v);
+		res->suiv=l;
+		return res;
+	}
 }
 
 
@@ -30,12 +38,27 @@ void afficheElement(Element e) {
 // Attention la liste peut être vide !
 // version itérative
 void afficheListe_i(Liste l) {
-	TODO;
+	Liste tmp=l;
+	if(l==NULL){
+	}
+	else {
+		while (tmp->suiv!=NULL){
+			afficheElement(tmp->val);
+			tmp=tmp->suiv;
+
+		}
+	}
 }
 
 // version recursive
 void afficheListe_r(Liste l) {
-	TODO;
+	Liste tmp=l;
+	if(l==NULL){
+	}
+	else {
+		afficheElement(tmp->val);
+		afficheListe_r(l->suiv);
+	}
 }
 
 void detruireElement(Element e) {}
