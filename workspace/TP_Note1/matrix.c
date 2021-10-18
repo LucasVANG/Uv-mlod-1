@@ -22,7 +22,7 @@ Matrix readMatrix(int nblignes,int nbcolo){
     for(int l=0;l<nblignes;l++){
         for(int c=0;c<nbcolo;c++){
             scanf("%i",&tmp);
-          // matrice.mat[l][c]=tmp;
+          matrice.mat[l][c]=tmp;
         }
         scanf("\n");
     }
