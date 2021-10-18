@@ -18,8 +18,8 @@ Matrix readMatrix(int nblignes,int nbcolo){
     int tmp=0;
     Matrix matrice;
     matrice.mat=(int**)malloc(sizeof(int)*nbcolo*nblignes);
-    matrice.mat[0]=(int*)malloc(sizeof(int)*nbcolo*nblignes);
     for(int l=0;l<nblignes;l++){
+        matrice.mat[l]=(int*)malloc(sizeof(int)*nbcolo*nblignes);
         for(int c=0;c<nbcolo;c++){
             scanf("%i",&tmp);
           matrice.mat[l][c]=tmp;
