@@ -77,8 +77,7 @@ int main(void){
 	afficheListe_r(l);
 
 	detruire_i(l); 
-
-	afficheListe_r(l);
+	l=NULL;
 
 	return EXIT_SUCCESS;
 }

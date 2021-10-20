@@ -66,9 +66,8 @@ void detruire_i(Liste l) {
 	Liste tmp;
 	while(l->suiv!=NULL){
 		tmp=l->suiv;
-		free(l);
 		detruireElement(l->val);
-		l->suiv=NULL;
+		free(l);
 		l=NULL;
 		l=tmp;
 	}
