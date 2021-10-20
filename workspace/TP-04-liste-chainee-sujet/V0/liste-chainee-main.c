@@ -20,11 +20,9 @@ int main(void){
 	l = ajoutTete(2,l);
 	l = ajoutTete(4,l);
 	l = ajoutTete(1,l);
-	printf("ol");
 	afficheListe_i(l);
-	afficheListe_r(l);
 
-	/*ajoutFin_r(99,l);
+	ajoutFin_i(99,l);
 	afficheListe_i(l);
 
 	ajoutFin_r(100,l);
@@ -78,7 +76,9 @@ int main(void){
 	l = retirePremier_r(99,l);
 	afficheListe_r(l);
 
-	detruire_r(l); */
+	detruire_i(l); 
+
+	afficheListe_r(l);
 
 	return EXIT_SUCCESS;
 }
