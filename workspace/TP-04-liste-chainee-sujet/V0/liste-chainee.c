@@ -147,23 +147,28 @@ Liste cherche_r(Element v,Liste l) {
 // ne fait rien si aucun élément possède cette valeur
 // version itérative
 Liste retirePremier_i(Element v, Liste l) {
-	Liste tmp=l;
+	Liste tmp, lien;
+	if(estVide(l)){
+		return l;
+	}
 
-	if(cherche_i(v,tmp)!=NULL){
-		if(equalsElement(tmp->val,v)){
-			tmp=tmp->suiv;
-			detruireElement(l->val);
-			free(l);
-			l=NULL;
-			return tmp;
+	if(equalsElement(l->val,v)){
+		tmp=l->suiv;
+		l->suiv=NULL;
+		detruire_i(l);
+		return tmp;
+	}
+	lien=l;
+	tmp=l->suiv;
+	while(!estVide(tmp) && !equalsElement(tmp->val,v)){
+		lien=tmp;
+		tmp=tmp->suiv;
+	}
 
-		}
-		while(tmp->suiv->val!=v){
-			tmp=tmp->suiv;	
-		}
-		Liste suivant=tmp->suiv->suiv;
-		free(tmp->suiv);
-		tmp->suiv=suivant;
+	if(!estVide(tmp)){
+		lien->suiv=tmp->suiv;
+		tmp->suiv=NULL;
+		detruire_i(tmp);
 	}
 	return l;
 }
