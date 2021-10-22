@@ -205,15 +205,10 @@ Liste retirePremier_r(Element v, Liste l) {
 
 void afficheEnvers_r(Liste l) {
 	Liste tmp=l;
-	if(estVide(tmp->suiv)){
-		afficheElement(tmp->val);
+	if(!estVide(l)){
 
-	}
-	else{
 		afficheEnvers_r(tmp->suiv);
-		afficheElement(tmp->val);
+        afficheElement(tmp->val);
 	}
+
 }
-
-
-
