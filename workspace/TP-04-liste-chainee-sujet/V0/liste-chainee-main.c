@@ -75,6 +75,9 @@ int main(void){
 	printf("retirePremier_r(99)  : ");
 	l = retirePremier_r(99,l);
 	afficheListe_r(l);
+	printf("\n");
+
+	afficheEnvers_r(l);
 
 	detruire_i(l); 
 	l=NULL;
