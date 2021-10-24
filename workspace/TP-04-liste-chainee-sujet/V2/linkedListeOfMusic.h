@@ -1,7 +1,7 @@
 #pragma once
 
-#include <stdbool.h>
 #include "LinkedList.h"
+#include <string.h>
 // ============
 // Types
 // ============
@@ -23,4 +23,9 @@ typedef struct{
 void afficheElement(Element e);
 void detruireElement(Element e);
 bool equalsElement(Element e1, Element e2);
+
+
+// New functions
+char* scanLine();
+Music* readLineAsMusic();
 
