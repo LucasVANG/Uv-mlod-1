@@ -2,6 +2,7 @@
 
 #include "LinkedList.h"
 #include <string.h>
+#include <stdio.h>
 // ============
 // Types
 // ============
@@ -26,6 +27,5 @@ bool equalsElement(Element e1, Element e2);
 
 
 // New functions
-char* scanLine();
-Music* readLineAsMusic();
+Music* readLineAsMusic(FILE *f);
 

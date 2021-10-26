@@ -6,18 +6,25 @@
 #include <stdio.h>
 #include <string.h>
 
-int main(void){
-Liste l;
+int main(int argc, char* argv[]){
 
-char *line=scanLine();
-l=creer(readLineAsMusic());
+Liste l;
+int a=argc;
+char * fileName =argv[1];
+FILE* f=fopen(fileName,"r");
+
+
+char *line=calloc(sizeof(char),255);
+fgets(line,250,f);
+l=creer(readLineAsMusic(f));
 for (long int i=0;i<2700;i++){
-    l=ajoutFin_i(readLineAsMusic(),l);
+    l=ajoutFin_i(readLineAsMusic(f),l);
 }
 
-printf("%s\n",line);
+printf("%s",line);
 free(line);
 afficheListe_i(l);
+fclose(f);
 detruire_i(l);
 
 

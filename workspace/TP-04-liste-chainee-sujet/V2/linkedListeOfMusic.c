@@ -3,31 +3,13 @@
 #include "linkedListeOfMusic.h"
 
 
-char* scanLine()
-{
-	int maxLineSize = 255;
-	char c, *line = calloc(maxLineSize+1,sizeof(char));
 
-	scanf("%250[^\n]", line);
-
-	if ( (c = getchar()) != '\n') {
-		/* we did not get all the line */
-		line[250] = '[';
-		line[251] = line[252] = line[253] = '.';
-		line[254] = ']';
-		// line[255] = '\0'; // useless because already initialized by calloc
-
-		// let's skip all chars untli the end of line
-		while (( (c = getchar()) != '\n') && c != EOF) ;
-	}
-
-	return line;
-}
-Music * readLineAsMusic(){
+Music * readLineAsMusic(FILE* f){
     Music * m;
     m=(Music*) malloc(sizeof(Music));
     char *p;
-    char *line=scanLine();
+    char *line=calloc(250,sizeof(char));
+    fgets(line,255,f);
     char *str=strdup(line);
     char *tmp=str;
     free(line);
