@@ -16,10 +16,7 @@ FILE* f=fopen(fileName,"r");
 
 char *line=calloc(sizeof(char),255);
 fgets(line,250,f);
-l=creer(readLineAsMusic(f));
-for (long int i=0;i<2700;i++){
-    l=ajoutFin_i(readLineAsMusic(f),l);
-}
+l=creationListeMusic(f,l);
 
 printf("%s",line);
 free(line);

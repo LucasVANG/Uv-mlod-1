@@ -43,6 +43,15 @@ Music * readLineAsMusic(FILE* f){
     return m;
 }
 
+Liste creationListeMusic(FILE* f,Liste l){
+    l=creer(readLineAsMusic(f));
+for (long int i=0;i<2700;i++){
+    l=ajoutFin_i(readLineAsMusic(f),l);
+}
+return l;
+
+}
+
 
 
 void afficheElement(Element e){

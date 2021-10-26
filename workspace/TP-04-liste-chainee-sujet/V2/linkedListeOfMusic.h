@@ -28,4 +28,5 @@ bool equalsElement(Element e1, Element e2);
 
 // New functions
 Music* readLineAsMusic(FILE *f);
+Liste creationListeMusic(FILE* f,Liste l);
 
