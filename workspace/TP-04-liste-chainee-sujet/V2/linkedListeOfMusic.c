@@ -4,15 +4,14 @@
 
 
 
-Music * readLineAsMusic(FILE* f){
+
+Music * readLineAsMusic(char *line){
     Music * m;
     m=(Music*) malloc(sizeof(Music));
     char *p;
-    char *line=calloc(250,sizeof(char));
-    fgets(line,255,f);
     char *str=strdup(line);
     char *tmp=str;
-    free(line);
+
 
     p=strsep(&str,",");
     m->name=calloc(sizeof(char),strlen(p)+1);
@@ -44,12 +43,59 @@ Music * readLineAsMusic(FILE* f){
 }
 
 Liste creationListeMusic(FILE* f,Liste l){
-    l=creer(readLineAsMusic(f));
-for (long int i=0;i<2700;i++){
-    l=ajoutFin_i(readLineAsMusic(f),l);
+    char *line=calloc(255,sizeof(char));
+    fgets(line,255,f);
+    l=creer(readLineAsMusic(line));
+    free(line);
+    line=NULL;
+for (long int i=0;;i++){
+    line=calloc(255,sizeof(char));
+    fgets(line,255,f);
+    if(strlen(line)==0){
+        free(line);
+        line=NULL;
+        break;
+    }
+    l=ajoutFin_i(readLineAsMusic(line),l);
+    free(line);
+    line=NULL;
 }
 return l;
 
+}
+
+
+
+
+void swapMusic(Liste l,Liste k){
+    Music * temp=(Music *)l->val;
+    l->val=k->val;
+    k->val=temp;
+
+}
+
+// On adapte l'algorithme de trie à Bulle à la liste de Musique selon l'année
+
+void bubbleSortListeMusic(Liste l){
+    int estTrie;
+    Liste lTemp;
+    
+    if(estVide(l)){
+        return;
+    }
+    do
+    {
+        estTrie=0;
+        lTemp=l;
+        while(lTemp->suiv!=NULL){
+            if(((Music*)lTemp->val)->year> ((Music *)lTemp->suiv->val)->year){
+                swapMusic(lTemp,lTemp->suiv);
+                estTrie=1;
+            }
+            lTemp=lTemp->suiv;
+        }
+    } while (estTrie);
+    
 }
 
 

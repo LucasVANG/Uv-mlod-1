@@ -1,5 +1,8 @@
 // gcc -W -Wall LinkedList.c mySpitofy.c linkedListeOfMusic.c  -o mySpitofy
-// valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all --show-reachable=no ./mySpitofy <music.csv> out.csv
+// pour vérifier la lecture et création de la liste de Music faire ./mySpitofy music.csv> out.csv
+// valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all --show-reachable=no ./mySpitofy music.csv> out.csv
+// pour vérifier le tri de la liste de musique créé faire ./mySpitofy tri music.csv> out.csv
+// valgrind --leak-check=yes --leak-check=full --show-leak-kinds=all --show-reachable=no ./mySpitofy tri music.csv> out.csv
 
 #include "linkedListeOfMusic.h"
 #include <stdlib.h>
@@ -7,23 +10,47 @@
 #include <string.h>
 
 int main(int argc, char* argv[]){
+if(argc==2)
+    {
+    Liste l=NULL;
+    char * fileName =argv[1];
+    FILE* f=fopen(fileName,"r");
+    char *line=calloc(sizeof(char),255);
 
-Liste l;
-int a=argc;
-char * fileName =argv[1];
-FILE* f=fopen(fileName,"r");
+
+    fgets(line,255,f);
+    l=creationListeMusic(f,l);
+
+    printf("%s",line);
+    free(line);
+    afficheListe_i(l);
+    fclose(f);
+    detruire_i(l);
+    }
+else if(argc==3 && (strcmp(argv[1],"tri")==0))
+    {
+    Liste l=NULL;
+    char * fileName =argv[2];
+    FILE* f=fopen(fileName,"r");
+    char *line=calloc(sizeof(char),255);
 
 
-char *line=calloc(sizeof(char),255);
-fgets(line,250,f);
-l=creationListeMusic(f,l);
+    fgets(line,255,f);
+    l=creationListeMusic(f,l);
 
-printf("%s",line);
-free(line);
-afficheListe_i(l);
-fclose(f);
-detruire_i(l);
+    printf("%s",line);
+    free(line);
 
+    bubbleSortListeMusic(l);
+    afficheListe_i(l);
+    fclose(f);
+    detruire_i(l);
+
+    }
+    else
+    {
+        printf("Too few arguments");
+    }
 
 
     return 0;

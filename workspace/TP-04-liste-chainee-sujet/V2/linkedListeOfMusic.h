@@ -27,6 +27,8 @@ bool equalsElement(Element e1, Element e2);
 
 
 // New functions
-Music* readLineAsMusic(FILE *f);
+Music* readLineAsMusic(char *line);
 Liste creationListeMusic(FILE* f,Liste l);
+void swapMusic(Liste l,Liste k);
+void bubbleSortListeMusic(Liste l);
 
