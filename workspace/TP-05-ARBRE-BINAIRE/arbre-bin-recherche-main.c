@@ -13,20 +13,20 @@ int main(void){
 	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
 
 
-	a = insere_i(a,5);
+	a = insere_r(a,5);
 	afficheGRD_r(a);printf("\n");
-	a = insere_i(a,3);
+	a = insere_r(a,3);
 	afficheGRD_r(a);printf("\n");
-	a = insere_i(a,2);
+	a = insere_r(a,2);
 	afficheGRD_r(a);printf("\n");
-	a = insere_i(a,3);
+	a = insere_r(a,3);
 	afficheGRD_r(a);printf("\n");
-	a = insere_i(a,1);
+	a = insere_r(a,1);
 	afficheGRD_r(a);printf("\n");
 
 	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
 
-	/*a = insere_r(a,7);
+	a = insere_r(a,7);
 	afficheGRD_r(a);printf("\n");
 	a = insere_i(a,8);
 	afficheGRD_r(a);printf("\n");
@@ -34,7 +34,7 @@ int main(void){
 	afficheGRD_r(a);printf("\n");
 	a = insere_r(a,3);
 	afficheGRD_r(a);printf("\n");
-	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));*/
+	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
 
 // 	a = supprimer_r(a,6);
 // 	afficheGRD_r(a);printf("\n");

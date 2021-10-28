@@ -51,6 +51,7 @@ ArbreBinaire insere_i(ArbreBinaire a, Element e) {
 		if(e<tmp->val){
 			if(estVide(tmp->filsGauche)){
 				tmp->filsGauche=creer(e);
+				return a;
 			}
 
 			tmp=tmp->filsGauche;
@@ -64,14 +65,42 @@ ArbreBinaire insere_i(ArbreBinaire a, Element e) {
 // si a contient déjà un element e, ce dernier n'est pas insérer afin d'éviter les doublons
 // version récursive
 ArbreBinaire insere_r(ArbreBinaire a, Element e) {
+	if(estVide(a)){
+		a->val=e;
+		return a;
+	}
+	if(a->val==e){
+		return a;
+	}
+	if(e>a->val){
+		if(estVide(a->filsDroit)){
+			a->filsDroit=creer(e);
+			return a;
+		}
+		a->filsDroit=insere_r(a->filsDroit,e);
+		return a;
+	}
+	if(e<a->val){
+		if(estVide(a->filsGauche)){
+			a->filsGauche=creer(e);
+		}
+		a->filsGauche=insere_r(a->filsGauche,e);
+		return a;
+	}
+
+
 	
 	return NULL;
 }
 
 // retourne le nombre de noeud contenus dans l'arbre a
 int nombreDeNoeud(ArbreBinaire a){
-
+	if(estVide(a)){
 		return 0;
+	}
+	else{
+		return(nombreDeNoeud(a->filsDroit)+nombreDeNoeud(a->filsGauche)+1);
+	}
 }
 
 
