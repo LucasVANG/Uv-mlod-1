@@ -5,7 +5,7 @@
 #include "arbre-bin-recherche.h"
 
 int main(void){
-	ArbreBinaire a; //,p;
+	ArbreBinaire a,p;
 
 	initialiser(&a);
 	// a = NULL;
@@ -36,18 +36,18 @@ int main(void){
 	afficheGRD_r(a);printf("\n");
 	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
 
-// 	a = supprimer_r(a,6);
-// 	afficheGRD_r(a);printf("\n");
-// 	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
-//
-// 	a = supprimer_r(a,5);
-// 	afficheGRD_r(a);printf("\n");
-// 	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
-//
-	// printf("profondeur 5 = %i\n",profondeur(a,5));
-	// printf("profondeur 2 = %i\n",profondeur(a,2));
-	// printf("profondeur 3 = %i\n",profondeur(a,3));
-	// printf("profondeur 7 = %i\n",profondeur(a,7));
+ 	a = supprimer_r(a,1);
+ 	afficheGRD_r(a);printf("\n");
+ 	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
+
+ 	a = supprimer_r(a,5);
+ 	afficheGRD_r(a);printf("\n");
+ 	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
+
+	printf("profondeur 5 = %i\n",profondeur(a,5));
+	printf("profondeur 2 = %i\n",profondeur(a,2));
+	printf("profondeur 3 = %i\n",profondeur(a,3));
+	printf("profondeur 7 = %i\n",profondeur(a,7));
 	// printf("profondeur NULL = %i\n",profondeur(NULL,5));
 	// printf("profondeur 18 = %i\n",profondeur(a,18));
 	//
@@ -63,14 +63,15 @@ int main(void){
 	// p=pere(a,3);
 	// printf("pere(3) = %i\n",p==NULL?-1:p->val);
 	//
-	// p=recherche_r(a, 18);
-	// printf("recherche(18) = %i\n",p==NULL?-1:p->val);
-	// p=recherche_r(NULL, 3);
-	// printf("recherche(NULL) = %i\n",p==NULL?-1:p->val);
-	// p=recherche_r(a, 3);
-	// printf("recherche(3) = %i\n",p==NULL?-1:p->val);
-	// p=recherche_r(a, 8);
-	// printf("recherche(8) = %i\n",p==NULL?-1:p->val);
+	p=recherche_r(a, 18);
+	printf("recherche(18) = %i\n",p==NULL?-1:p->val);
+	p=recherche_r(NULL, 3);
+	printf("recherche(NULL) = %i\n",p==NULL?-1:p->val);
+	p=recherche_r(a, 3);
+	afficheGRD_r(p);
+	printf("recherche(3) = %i\n",p==NULL?-1:p->val);
+	p=recherche_r(a, 8);
+	printf("recherche(8) = %i\n",p==NULL?-1:p->val);
 	//
 	// a = supprimer_r(a,18);
 	// printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));

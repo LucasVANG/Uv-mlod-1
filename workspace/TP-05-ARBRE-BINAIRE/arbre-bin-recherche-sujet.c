@@ -4,7 +4,7 @@
 
 // retourne TRUE si a est l'arbre vide et FALSE sinon
 bool estVide(ArbreBinaire a) {
-	if(a->val==NULL){
+	if(a==NULL||a->val==NULL){
 		return true;
 	}
 	return false;
@@ -89,8 +89,7 @@ ArbreBinaire insere_r(ArbreBinaire a, Element e) {
 	}
 
 
-	
-	return NULL;
+
 }
 
 // retourne le nombre de noeud contenus dans l'arbre a
@@ -107,8 +106,7 @@ int nombreDeNoeud(ArbreBinaire a){
 // retourne la profondeur du noeud ayant la valeur e dans a
 // retourne -1 si a est vide ou si e n'est pas dans a
 int profondeur(ArbreBinaire a, Element e){
-
-		return 0;
+	return 0;
 }
 
 // retourne la hauteur de l'arbre a
@@ -174,8 +172,9 @@ ArbreBinaire recherche_r(ArbreBinaire a, Element elem){
 // suppime x de a
 ArbreBinaire supprimer_r(ArbreBinaire a,Element x)
 {
+	return a;
 
-	return NULL;
+
 }
 
 void detruire_r(ArbreBinaire a){
