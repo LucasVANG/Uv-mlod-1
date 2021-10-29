@@ -258,6 +258,16 @@ ArbreBinaire supprimer_r(ArbreBinaire a,Element x)
 				tmp->filsGauche=pe->filsGauche->filsGauche;
 				free(pe->filsDroit);
 				pe->filsDroit=tmp;
+				return a;
+			}
+			if(!estVide(pe->filsDroit->filsGauche)){
+				tmp=max(pe->filsDroit->filsGauche);
+				tmp->filsDroit=pe->filsDroit->filsDroit;
+				tmp->filsGauche=pe->filsGauche->filsGauche;
+				free(pe->filsDroit);
+				pe->filsDroit=tmp;
+				return a;
+
 			}
 
 		}
