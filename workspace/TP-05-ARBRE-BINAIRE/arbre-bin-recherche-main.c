@@ -1,4 +1,4 @@
-// gcc -W -Wall -Wextra -std=c99 arbre-bin-recherche.c arbre-bin-recherche-main.c
+// gcc -W -Wall -Wextra -std=c99 arbre-bin-recherche-sujet.c arbre-bin-recherche-main.c
 
 // gcc -W -Wall -Wextra -std=c99 arbre-bin-recherche-correction.c arbre-bin-recherche-main.c
 
@@ -71,17 +71,17 @@ int main(void){
 	printf("recherche(3) = %i\n",p==NULL?-1:p->val);
 	p=recherche_r(a, 8);
 	printf("recherche(8) = %i\n",p==NULL?-1:p->val);
-	//
-	// a = supprimer_r(a,18);
-	// printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
-	// printf("suppression(18) : \n");afficheGRD_r(a);printf("\n");
-	// printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
-	// a = supprimer_r(a,8);
-	// printf("suppression(8) : \n");afficheGRD_r(a);printf("\n");
-	// printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
-	// a = supprimer_r(a,5);
-	// printf("suppression(5) : \n");afficheGDR_r(a);printf("\n");
-	// printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
+	
+	a = supprimer_r(a,18);
+	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
+	printf("suppression(18) : \n");afficheGRD_r(a);printf("\n");
+	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
+	a = supprimer_r(a,8);
+	printf("suppression(8) : \n");afficheGRD_r(a);printf("\n");
+	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
+	a = supprimer_r(a,5);
+	printf("suppression(5) : \n");afficheGDR_r(a);printf("\n");
+	printf("nombreDeNoeud(a)= %i\n",nombreDeNoeud(a));
 
 	detruire_r(a);
 
